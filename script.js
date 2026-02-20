@@ -511,6 +511,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =============================================
+  // Tab Navigation
+  // =============================================
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.tab;
+
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.calculator-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(targetId).classList.add('active');
+
+      document.querySelectorAll('.searchable-select.open').forEach(s => s.classList.remove('open'));
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // =============================================
   // Initialize
   // =============================================
 

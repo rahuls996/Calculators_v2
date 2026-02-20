@@ -117,15 +117,83 @@ body {
 }
 
 /* ==========================================
+   Tab Navigation
+   ========================================== */
+
+.tab-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--surface-overlay);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.tab-nav-inner {
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 12px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.tab-btn.active {
+  color: var(--primary-300);
+  font-weight: 600;
+  border-bottom-color: var(--primary-300);
+}
+
+.tab-btn svg {
+  flex-shrink: 0;
+}
+
+.tab-content {
+  flex: 1;
+}
+
+/* ==========================================
    Section Layout
    ========================================== */
 
 .calculator-section {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 55px);
   padding: 48px 24px;
+}
+
+.calculator-section.active {
+  display: flex;
 }
 
 /* ==========================================
@@ -721,6 +789,12 @@ body {
   .calculator-section {
     padding: 24px 16px;
     min-height: auto;
+    align-items: flex-start;
+  }
+
+  .tab-btn {
+    padding: 14px 8px;
+    font-size: 13px;
   }
 
   .calculator-container {
@@ -765,6 +839,20 @@ body {
    ========================================== */
 
 @media (max-width: 480px) {
+  .tab-btn span {
+    display: none;
+  }
+
+  .tab-btn {
+    padding: 14px 16px;
+    gap: 0;
+  }
+
+  .tab-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
   .calculator-section {
     padding: 16px 12px;
   }
