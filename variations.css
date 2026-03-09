@@ -29,23 +29,35 @@
 }
 
 /* ==========================================
-   Phone Input
+   Phone Input — styled to match .slider-group
    ========================================== */
 
 .phone-field-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--scale-8);
+}
+
+/* Reuse slider-header layout so label + input box sit on the same row */
+.phone-field-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--scale-16);
+  min-height: 48px;
 }
 
 .required-star {
   color: #EF4444;
 }
 
+/* The wrapper stretches to fill remaining space like slider-value-box */
 .phone-input-wrapper {
   display: flex;
   align-items: center;
-  height: 52px;
+  height: 48px;
+  min-width: 180px;
+  flex: 1;
   background: var(--color-bg-overlay);
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
@@ -64,7 +76,7 @@
 }
 
 .phone-prefix {
-  padding: 0 12px 0 16px;
+  padding: 0 10px 0 14px;
   font-size: 16px;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -86,7 +98,7 @@
   font-size: 16px;
   font-weight: 500;
   color: var(--color-text-primary);
-  padding: 0 16px;
+  padding: 0 14px;
 }
 
 .phone-input::placeholder {
@@ -99,6 +111,7 @@
   font-weight: 500;
   color: #EF4444;
   display: none;
+  padding-left: 2px;
 }
 
 .phone-error.visible {
@@ -108,6 +121,7 @@
 .phone-hint {
   font-size: 13px;
   color: var(--color-text-secondary);
+  padding-left: 2px;
 }
 
 /* ==========================================
@@ -165,7 +179,7 @@
 
 .whatsapp-input-row .phone-input-wrapper {
   flex: 1;
-  height: 44px;
+  height: 48px;
   background: white;
 }
 
@@ -173,7 +187,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 44px;
+  height: 48px;
   padding: 0 20px;
   background: #16A34A;
   border: none;
