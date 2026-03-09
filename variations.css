@@ -29,33 +29,37 @@
 }
 
 /* ==========================================
-   Phone Input — Figma "Number Box" style
-   Label above, full-width 56px input, large radius
+   Phone Input — same label-left + input-right
+   row layout as sliders, Figma Number Box styling
    ========================================== */
 
 .phone-field-group {
   display: flex;
   flex-direction: column;
-  gap: var(--scale-8);
+  gap: var(--scale-4);
 }
 
-.phone-field-label {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  line-height: 24px;
+/* Same row layout as .slider-header */
+.phone-field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--scale-16);
+  min-height: 56px;
 }
 
 .required-star {
   color: #EF4444;
 }
 
-/* Full-width wrapper — matches Figma Number Box */
+/* Input box — Figma Number Box: 56px, large radius */
 .phone-input-wrapper {
   display: flex;
   align-items: center;
-  width: 100%;
   height: 56px;
+  min-width: 200px;
+  flex: 1;
+  max-width: 260px;
   background: var(--color-bg-overlay);
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-xl);
@@ -78,7 +82,7 @@
 }
 
 .phone-prefix {
-  padding: 0 12px 0 18px;
+  padding: 0 10px 0 16px;
   font-size: 16px;
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -100,7 +104,7 @@
   font-size: 16px;
   font-weight: 400;
   color: var(--color-text-primary);
-  padding: 0 18px;
+  padding: 0 14px;
 }
 
 .phone-input::placeholder {
@@ -114,6 +118,7 @@
   color: #EF4444;
   display: none;
   padding-left: 4px;
+  text-align: right;
 }
 
 .phone-error.visible {
@@ -124,6 +129,7 @@
   font-size: 13px;
   color: var(--color-text-secondary);
   padding-left: 4px;
+  text-align: right;
 }
 
 /* ==========================================
@@ -182,6 +188,7 @@
 .whatsapp-input-row .phone-input-wrapper {
   flex: 1;
   height: 56px;
+  max-width: unset;
   background: white;
 }
 
