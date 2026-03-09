@@ -111,6 +111,7 @@ function initStepper(decId, incId, valId, min, max, onChange) {
 
   function update() {
     val.textContent = count;
+    val.dataset.zero = count === 0 ? 'true' : 'false';
     dec.disabled = count <= min;
     if (onChange) onChange(count);
   }

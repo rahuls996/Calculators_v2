@@ -171,7 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById(decId).addEventListener('click', () => {
         if (this.state[stateKey] > min) {
           this.state[stateKey]--;
-          document.getElementById(valId).textContent = this.state[stateKey];
+          const el = document.getElementById(valId);
+          el.textContent = this.state[stateKey];
+          el.dataset.zero = this.state[stateKey] === 0 ? 'true' : 'false';
           this.updateStepperButtons();
           this.update();
         }
@@ -179,7 +181,9 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById(incId).addEventListener('click', () => {
         if (this.state[stateKey] < max) {
           this.state[stateKey]++;
-          document.getElementById(valId).textContent = this.state[stateKey];
+          const el = document.getElementById(valId);
+          el.textContent = this.state[stateKey];
+          el.dataset.zero = this.state[stateKey] === 0 ? 'true' : 'false';
           this.updateStepperButtons();
           this.update();
         }
